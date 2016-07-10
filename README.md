@@ -1,7 +1,7 @@
 Scripts and systemd unit file for running a minecraft server as a persistent process within a byobu tmux server.
 Creates and manages its own tmux server socket in `/tmp/tmux-minecraft/$USER` and runs `~/servers/current/forge.jar` in a window named "Server".
 Also creates an extra window running your user's shell for convenience of management.
-Attach with `tmux -S "/tmp/tmux-minecraft/$USER attach` (or with byobu instead of tmux).
+Attach with `tmux -S "/tmp/tmux-minecraft/$USER" attach` (or with byobu instead of tmux).
 Byobu executable lines in minecraft-server.service can be replaced with plain tmux if you prefer.
 
 **Installation**
