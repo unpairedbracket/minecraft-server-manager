@@ -11,6 +11,9 @@ You should also create the directory `~/servers/current`, which is recommended t
 By changing the symlink target you can make one of several server instances "live" at any given point, back up current live server instances, and so on.
 The directory acting as `~/servers/current` should contain the server instance you wish to run, with the executable forge server jar named `forge.jar`.
 
+If you wish the server to be run automatically on login, you may "enable" it using `systemctl --user enable minecraft-server`.
+I believe that running `loginctl enable-linger minecraft` (replacing "minecraft" with the name of the server user if it is different) will start the server (as well as all other systemd units set up for that user) on boot, but I have not tested this.
+
 **Running The Server**
 
 To run the server, run `systemctl --user start minecraft-server` as the user who has the files installed.

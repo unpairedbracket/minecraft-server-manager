@@ -11,3 +11,6 @@ Restart=on-success
 RestartSec=1
 KillMode=none
 WorkingDirectory=%h/servers/current
+
+[Install]
+WantedBy=default.target
