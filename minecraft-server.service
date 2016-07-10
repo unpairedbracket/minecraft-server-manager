@@ -1,0 +1,13 @@
+[Unit]
+Description=Minecraft Server
+
+[Service]
+Type=forking
+ExecStartPre=/bin/mkdir -p /tmp/tmux-minecraft
+ExecStart=/usr/bin/byobu -S "/tmp/tmux-minecraft/%u" new-session -d -s Minecraft -n Server "java -jar forge.jar nogui; tmux wait-for -S server-exited"
+ExecStartPost=/usr/bin/byobu -S "/tmp/tmux-minecraft/%u" new-window -d
+ExecStop=/bin/sh %h/bin/stop_server.sh
+Restart=on-success
+RestartSec=1
+KillMode=none
+WorkingDirectory=%h/servers/current
